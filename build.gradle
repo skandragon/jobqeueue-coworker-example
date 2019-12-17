@@ -1,0 +1,43 @@
+buildscript {
+  ext.kotlin_version = '1.3.50'
+  ext.jUnitVersion = '5.5.2'
+  ext.serializationRuntimeVersion = '0.13.0'
+
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+  }
+}
+
+apply plugin: "kotlin"
+apply plugin: "application"
+apply plugin: 'kotlinx-serialization'
+
+group = "com.opsmx"
+
+application {
+  mainClassName = "com.opsmx.autopilot.loganalysis.clustering.main.MainKt"
+}
+
+sourceSets {
+  deploy
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationRuntimeVersion"
+  compile 'io.kungfury:coworker:1.2.0'
+
+  testImplementation("org.junit.jupiter:junit-jupiter:$jUnitVersion")
+  testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+}
