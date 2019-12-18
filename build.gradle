@@ -21,7 +21,7 @@ apply plugin: 'kotlinx-serialization'
 group = "com.opsmx"
 
 application {
-  mainClassName = "com.opsmx.autopilot.loganalysis.clustering.main.MainKt"
+  mainClassName = "org.flame.coworker.main.MainKt"
 }
 
 sourceSets {
